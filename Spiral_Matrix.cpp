@@ -3,7 +3,7 @@ public:
     vector<int> spiralOrder(vector<vector<int>>& matrix) {
         vector<int>v;
         int m=matrix.size(),n=matrix[0].size();
-        int i=0,j=0,cnt=0,dir=0;
+        int i=0,j=0,dir=0;
         while(v.size()!=m*n)
         {
             if((dir%4)==0)
@@ -12,18 +12,11 @@ public:
                 {
                     v.push_back(matrix[i][j]);
                     matrix[i][j]=101;
-                    cnt++;
                     j++;
                 }
-                if(matrix[i][j]!=101)
-                {
-                    v.push_back(matrix[i][j]);
-                    matrix[i][j]=101;
-                    cnt++;
-                }
-                if(cnt!=0)
-                    i++;
-                cnt=0;
+                v.push_back(matrix[i][j]);
+                matrix[i][j]=101;
+                i++;
                 dir=1;
             }
             else if((dir%4)==1)
@@ -32,18 +25,11 @@ public:
                 {
                     v.push_back(matrix[i][j]);
                     matrix[i][j]=101;
-                    cnt++;
                     i++;
                 }
-                if(matrix[i][j]!=101)
-                {
-                    v.push_back(matrix[i][j]);
-                    matrix[i][j]=101;
-                    cnt++;
-                }
-                if(cnt!=0)
-                    j--;
-                cnt=0;
+                v.push_back(matrix[i][j]);
+                matrix[i][j]=101;
+                j--;
                 dir=2;
             }
             else if((dir%4)==2)
@@ -52,18 +38,11 @@ public:
                 {
                     v.push_back(matrix[i][j]);
                     matrix[i][j]=101;
-                    cnt++;
                     j--;
                 }
-                if(matrix[i][j]!=101)
-                {
-                    v.push_back(matrix[i][j]);
-                    matrix[i][j]=101;
-                    cnt++;
-                }
-                if(cnt!=0)
-                    i--;
-                cnt=0;
+                v.push_back(matrix[i][j]);
+                matrix[i][j]=101;
+                i--;
                 dir=3;
             }
             else
@@ -72,18 +51,11 @@ public:
                 {
                     v.push_back(matrix[i][j]);
                     matrix[i][j]=101;
-                    cnt++;
                     i--;
                 }
-                if(matrix[i][j]!=101)
-                {
-                    v.push_back(matrix[i][j]);
-                    matrix[i][j]=101;
-                    cnt++;
-                }
-                if(cnt!=0)
-                    j++;
-                cnt=0;
+                v.push_back(matrix[i][j]);
+                matrix[i][j]=101;
+                j++;
                 dir=0;
             }
         }
