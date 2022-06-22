@@ -1,3 +1,4 @@
+class Solution {
 public:
     int v[15][10005];
     int helper(vector<int>&coins,int am,int i)
