@@ -17,5 +17,5 @@ public:
 		    m[rem]++;
 	    }
 	    return ans;
-    }
+    } 
 };
