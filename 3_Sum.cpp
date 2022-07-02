@@ -1,7 +1,7 @@
 class Solution {
 public:
     vector<vector<int>> threeSum(vector<int>& a) {
-        map<vector<int> ,int > m;
+        map<vector<int>,int> m;
         int n=a.size();
         vector<vector<int>> res;
         sort(a.begin(),a.end());
@@ -10,11 +10,7 @@ public:
             int l=0,r=n-1;
             while(l<i && r>i)
             {
-                if(l==i)
-                    l++;
-                else if(r==i)
-                    r--;
-                else if(a[l]+a[r]+a[i]==0)
+                if(a[l]+a[r]+a[i]==0)
                 {
                     m[{a[l],a[i],a[r]}]=1;
                     l++;
