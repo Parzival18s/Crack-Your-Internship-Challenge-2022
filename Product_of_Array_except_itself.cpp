@@ -1,23 +1,24 @@
 class Solution {
 public:
-    vector<int> productArray(vector<int>arr)
-    {
-        int n=arr.size();
-        if(n==1)
-            return arr;
-        int i,tmp=1;
-        vector<int>ans(n,1);
-        for (i=0;i<n;i++)
+    vector<int> productExceptSelf(vector<int>& nums) {
+        int tmp=1,n=nums.size();
+        vector<int>ans(n),prefix,suffix;
+        for(int i=0;i<n;i++)
         {
-            ans[i]=tmp;
-            tmp*=arr[i];
+            tmp*=nums[i];
+            prefix.push_back(tmp);
         }
         tmp=1;
-        for(i=n-1;i>=0;i--)
+        for(int i=n-1;i>=0;i--)
         {
-            ans[i]*=tmp;
-            tmp*=arr[i];
+            tmp*=nums[i];
+            suffix.push_back(tmp);
         }
+        reverse(suffix.begin(),suffix.end());
+        ans[0]=suffix[1];
+        ans[n-1]=prefix[n-2];
+        for(int i=1;i<n-1;i++)
+            ans[i]=prefix[i-1]*suffix[i+1];
         return ans;
     }
 };
