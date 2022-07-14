@@ -5,7 +5,7 @@ public:
         int tasks_size = tasks.size();
         int max_freq = 0;
         for (auto &it : tasks) {
-            count[it - 65]++;   // 65 is ascii value of 'A'
+            count[it - 65]++;
             max_freq = max(max_freq, count[it - 65]);
         }
 
