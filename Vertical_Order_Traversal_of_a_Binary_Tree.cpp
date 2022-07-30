@@ -1,7 +1,9 @@
 unordered_map<TreeNode*,int>v;
 bool helper(TreeNode* a,TreeNode* b)
 {
-    return v[a]<v[b];
+    if(v[a]!=v[b])
+        return v[a]<v[b];
+    return a->val<b->val;
 }
 class Solution {
 public:
@@ -38,17 +40,6 @@ public:
         for(auto &i:m)
         {
             sort(i.second.begin(),i.second.end(),helper);
-            for(int j=0;j<i.second.size()-1;j++)
-            {
-                if(v[i.second[j]]==v[i.second[j+1]])
-                {
-                    if(i.second[j]->val>i.second[j+1]->val)
-                    {
-                        swap(i.second[j],i.second[j+1]);
-                        j=-1;
-                    }
-                }
-            }
             vector<int>tmp;
             for(int j=0;j<i.second.size();j++)
                 tmp.push_back(i.second[j]->val);
